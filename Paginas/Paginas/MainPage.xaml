@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Paginas.MainPage">
+
+    <Grid Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Entry Grid.Row="0" Grid.ColumnSpan="3" x:Name="txtNombre" Placeholder="Nombre"/>
+        <Entry Grid.Row="1" Grid.ColumnSpan="3" x:Name="txtCorreo" Placeholder="Correo-e"/>
+        <Entry Grid.Row="2" Grid.ColumnSpan="3" x:Name="txtTelefono" Placeholder="Teléfono"/>
+        <Button Grid.Row="3" Grid.Column="0" Text="Agregar" Clicked="Boton_Agregar" HorizontalOptions="FillAndExpand" BackgroundColor="Green" TextColor="White" CornerRadius="15"/>
+        <Button Grid.Row="3" Grid.Column="1" Text="Modificar" Clicked="Boton_Modificar" HorizontalOptions="FillAndExpand" BackgroundColor="DodgerBlue" TextColor="White" CornerRadius="15"/>
+        <Button Grid.Row="3" Grid.Column="2" Text="Eliminar" Clicked="Boton_Borrar" HorizontalOptions="FillAndExpand" BackgroundColor="PaleVioletRed" TextColor="White" CornerRadius="15"/>
+
+        <ListView x:Name="lstPersonas" Grid.Row="4" Grid.ColumnSpan="3" ItemSelected="lstPersonas_ItemSelected" HasUnevenRows="True" SeparatorColor="Red" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout>
+                            <Label Text="{Binding Nombre, StringFormat='Nombre: {0}'}"/>
+                            <Label Text="{Binding Correo, StringFormat='Correo: {0}'}"/>
+                            <Label Text="{Binding Telefono, StringFormat='Teléfono {0}'}"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Label Grid.Row="5" Grid.ColumnSpan="3" x:Name="miindice" Text="Test"/>
+    </Grid>
+
+</ContentPage>
