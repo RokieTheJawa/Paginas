@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Paginas.Vistas.NuevoPage"
+             Title="Nuevo registro">
+    <ContentPage.Content>
+        <StackLayout Margin="15">
+            <Entry x:Name="txtNombre" Placeholder="Nombre"/>
+            <Entry x:Name="txtCorreo" Placeholder="Correo-e" Keyboard="Email"/>
+            <Entry x:Name="txtTelefono" Placeholder="Teléfono" Keyboard="Telephone"/>
+            <StackLayout Orientation="Horizontal" Margin="0,15,0,0">
+                <Button x:Name="cmdGuardar" Text="Guardar" Clicked="cmdGuardar_Clicked" HorizontalOptions="FillAndExpand" BackgroundColor="Green" TextColor="White" CornerRadius="15"/>
+                <Button x:Name="cmdCancelar" Text="Cancelar" Clicked="cmdCancelar_Clicked" HorizontalOptions="FillAndExpand" BackgroundColor="PaleVioletRed" TextColor="White" CornerRadius="15"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
