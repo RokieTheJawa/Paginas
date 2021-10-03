@@ -4,7 +4,9 @@
              x:Class="Paginas.MainPage"
              Title="Principal">
 
-    <Grid Margin="15">
+
+
+    <!--<Grid Margin="15">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
@@ -16,15 +18,15 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <Entry Grid.Row="0" Grid.ColumnSpan="3" x:Name="txtNombre" Placeholder="Nombre"/>
+        </Grid.ColumnDefinitions>-->
+        <!--<Entry Grid.Row="0" Grid.ColumnSpan="3" x:Name="txtNombre" Placeholder="Nombre"/>
         <Entry Grid.Row="1" Grid.ColumnSpan="3" x:Name="txtCorreo" Placeholder="Correo-e"/>
-        <Entry Grid.Row="2" Grid.ColumnSpan="3" x:Name="txtTelefono" Placeholder="Teléfono"/>
-        <Button Grid.Row="3" Grid.Column="0" Text="Nuevo" Clicked="Boton_Agregar" HorizontalOptions="FillAndExpand" BackgroundColor="Green" TextColor="White" CornerRadius="15"/>
-        <Button Grid.Row="3" Grid.Column="1" Text="Modificar" Clicked="Boton_Modificar" HorizontalOptions="FillAndExpand" BackgroundColor="DodgerBlue" TextColor="White" CornerRadius="15"/>
-        <Button Grid.Row="3" Grid.Column="2" Text="Eliminar" Clicked="Boton_Borrar" HorizontalOptions="FillAndExpand" BackgroundColor="PaleVioletRed" TextColor="White" CornerRadius="15"/>
-
-        <ListView x:Name="lstPersonas" Grid.Row="4" Grid.ColumnSpan="3" ItemSelected="lstPersonas_ItemSelected" HasUnevenRows="True" SeparatorColor="Red" >
+        <Entry Grid.Row="2" Grid.ColumnSpan="3" x:Name="txtTelefono" Placeholder="Teléfono"/>-->
+    <StackLayout Margin="15">
+        <Button Text="Nuevo" Clicked="Boton_Agregar" BackgroundColor="Green" TextColor="White" CornerRadius="15"/>
+        <Button Text="Modificar" Clicked="Boton_Modificar" BackgroundColor="DodgerBlue" TextColor="White" CornerRadius="15"/>
+        <Button Text="Eliminar" Clicked="Boton_Borrar" BackgroundColor="PaleVioletRed" TextColor="White" CornerRadius="15"/>
+        <ListView x:Name="lstPersonas" ItemSelected="lstPersonas_ItemSelected" HasUnevenRows="True" SeparatorColor="Red" >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -37,6 +39,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-    </Grid>
+    </StackLayout>
+    <!--</Grid>-->
 
 </ContentPage>

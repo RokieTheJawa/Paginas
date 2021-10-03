@@ -12,7 +12,6 @@ namespace Paginas
 {
     public partial class MainPage : ContentPage
     {
-        public bool seleccionado = false;
 
         public int indice;
         public MainPage()
@@ -55,25 +54,34 @@ namespace Paginas
 
         private void Boton_Modificar(object sender, EventArgs e)
         {
-            if (seleccionado == false)
+            if (App.seleccionado == true)
             {
-                DisplayAlert("Error", "No hay ningún elemento seleccionado", "Aceptar");
+                Navigation.PushAsync(new NuevoPage() { BindingContext = App.Personas[App.indice] });
             }
             else
             {
-                App.Personas.RemoveAt(indice);
-                App.Personas.Insert(indice, new Persona() { Nombre = txtNombre.Text, Correo = txtCorreo.Text, Telefono = txtTelefono.Text });
-
-                lstPersonas.ItemsSource = null;
-                lstPersonas.ItemsSource = App.Personas;
-                seleccionado = false;
+                DisplayAlert("Error", "Seleccione un elemento", "Aceptar");
             }
 
+            //if (seleccionado == false)
+            //{
+            //    DisplayAlert("Error", "No hay ningún elemento seleccionado", "Aceptar");
+            //}
+            //else
+            //{
+            //    App.Personas.RemoveAt(App.indice);
+            //    App.Personas.Insert(App.indice, new Persona() { Nombre = txtNombre.Text, Correo = txtCorreo.Text, Telefono = txtTelefono.Text });
+
+            //    lstPersonas.ItemsSource = null;
+            //    lstPersonas.ItemsSource = App.Personas;
+            //    seleccionado = false;
         }
+
+        //}
 
         private void Boton_Borrar(object sender, EventArgs e)
         {
-            if (seleccionado == false)
+            if (App.seleccionado == false)
             {
                 DisplayAlert("Error", "Seleccione un elemento", "Aceptar");
             }
@@ -88,18 +96,26 @@ namespace Paginas
                 lstPersonas.ItemsSource = null;
                 lstPersonas.ItemsSource = App.Personas;
 
-                seleccionado = false;
+                App.seleccionado = false;
             }
         }
 
         private void lstPersonas_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             Persona persona = (Persona)e.SelectedItem;
-            indice = e.SelectedItemIndex;
-            txtNombre.Text = persona.Nombre;
-            txtCorreo.Text = persona.Correo;
-            txtTelefono.Text = persona.Telefono;
-            seleccionado = true;
+            App.indice = e.SelectedItemIndex;
+            //Console.WriteLine(persona);
+            //Console.WriteLine(App.Personas[4]);
+            //Console.WriteLine(App.Personas[indice]);
+            //txtNombre.Text = persona.Nombre;
+            //txtCorreo.Text = persona.Correo;
+            //txtTelefono.Text = persona.Telefono;
+            App.seleccionado = true;
+        }
+
+        private void tlbNuevo_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new NuevoPage());
         }
     }
 }

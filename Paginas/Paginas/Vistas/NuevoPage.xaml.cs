@@ -25,8 +25,18 @@ namespace Paginas.Vistas
             }
             else
             {
-                App.Personas.Add(new Modelo.Persona() { Nombre = txtNombre.Text, Correo = txtCorreo.Text, Telefono = txtTelefono.Text });
-                Navigation.PopAsync();
+                if (App.seleccionado == true)
+                {
+                    App.Personas.RemoveAt(App.indice);
+                    App.Personas.Insert(App.indice, new Modelo.Persona() { Nombre = txtNombre.Text, Correo = txtCorreo.Text, Telefono = txtTelefono.Text });
+                    App.seleccionado = false;
+                    Navigation.PopAsync();
+                }
+                else
+                {
+                    App.Personas.Add(new Modelo.Persona() { Nombre = txtNombre.Text, Correo = txtCorreo.Text, Telefono = txtTelefono.Text });
+                    Navigation.PopAsync();
+                }
             }
         }
 

@@ -8,6 +8,9 @@ namespace Paginas
 {
     public partial class App : Application
     {
+        public static bool seleccionado;
+
+        public static int indice;
         public static List<Persona> Personas { get; set; }
 
         public App()

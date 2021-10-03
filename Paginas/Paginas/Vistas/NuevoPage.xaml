@@ -5,9 +5,9 @@
              Title="Nuevo registro">
     <ContentPage.Content>
         <StackLayout Margin="15">
-            <Entry x:Name="txtNombre" Placeholder="Nombre"/>
-            <Entry x:Name="txtCorreo" Placeholder="Correo-e" Keyboard="Email"/>
-            <Entry x:Name="txtTelefono" Placeholder="Teléfono" Keyboard="Telephone"/>
+            <Entry x:Name="txtNombre" Text="{Binding Nombre}" Placeholder="Nombre"/>
+            <Entry x:Name="txtCorreo" Text="{Binding Correo}"  Placeholder="Correo-e" Keyboard="Email"/>
+            <Entry x:Name="txtTelefono" Text="{Binding Telefono}" Placeholder="Teléfono" Keyboard="Telephone"/>
             <StackLayout Orientation="Horizontal" Margin="0,15,0,0">
                 <Button x:Name="cmdGuardar" Text="Guardar" Clicked="cmdGuardar_Clicked" HorizontalOptions="FillAndExpand" BackgroundColor="Green" TextColor="White" CornerRadius="15"/>
                 <Button x:Name="cmdCancelar" Text="Cancelar" Clicked="cmdCancelar_Clicked" HorizontalOptions="FillAndExpand" BackgroundColor="PaleVioletRed" TextColor="White" CornerRadius="15"/>
